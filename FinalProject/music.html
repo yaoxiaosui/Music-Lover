@@ -1,0 +1,239 @@
+<!-- cite: I am using and modifying the template from https://www.w3schools.com/w3css/tryw3css_templates_portfolio.htm -->
+<!-- cite: The search button and style are from https://www.w3schools.com/howto/howto_css_fullscreen_search.asp -->
+
+
+<!DOCTYPE html>
+<html>
+<title>Music Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body {
+    font-family: Arial;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+}
+
+.overlay-content {
+    position: relative;
+    top: 46%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+.overlay .closebtn:hover {
+    color: #ccc;
+}
+
+.overlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+.overlay input[type=text]:hover {
+    background: #f1f1f1;
+}
+
+.overlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background: #bbb;
+}
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+
+  <div class="w3-bar-block">
+    <a href="#home" onclick="toHome()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Home</a>
+    <a href="#profile" id="profile_page" onclick="toProfile()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>Profile</a>
+    <a href="#profile" onclick="toVideo()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-youtube-play fa-fw w3-margin-right"></i>Video</a>
+
+    <a href="#search" id = "search_artist" onclick="openSearch()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search fa-fw w3-margin-right"></i>Search Artist</a>
+    <a href="#search" id = "search_song" onclick="openSearch2()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search fa-fw w3-margin-right"></i>Search Song</a>
+
+
+  </div>
+
+   <div id="newOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form>
+      <input type="text" placeholder="Search Artist" name="search">
+      <button type = "button" onclick="popup()" name = "submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+    <div id="newlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch2()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form>
+      <input type="text" placeholder="Search Song" name="search_song">
+      <button type = "button" onclick="popup2()" name = "submit_song"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/FinalProject/Image/abbey_road.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p id = 'title1'><b>Abbey Road</b></p>
+        <p>Abbey Road is the eleventh studio album by English rock band the Beatles, released on 26 September 1969 by Apple Records. The recording sessions for the album were the last in which all four Beatles participated. Although Let It Be was the final album that the Beatles completed before the band's dissolution in April 1970, most of the album had been recorded before the Abbey Road sessions began.[1] A two-sided hit single from the album, "Something" backed with "Come Together", released in October, topped the Billboard Hot 100 chart in the US.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/FinalProject/Image/definitely_maybe.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Definitely Maybe</b></p>
+        <p>Definitely Maybe was an immediate commercial and critical success in the United Kingdom, having followed on the heels of the singles "Supersonic", "Shakermaker", and "Live Forever". The album went straight to number one in the UK Albums Chart, and became the fastest-selling debut album in the UK at the time; it went on to be certified 7× Platinum (2.1 million+ sales) by the BPI.[4] Definitely Maybe marked the beginning of Oasis' success in the United States, selling over one million copies there despite only peaking at 58 on the Billboard 200. The album went on to sell over 8 million copies worldwide and brought widespread critical acclaim.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="/FinalProject/Image/sigur.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Með suð í eyrum við spilum endalaust </b></p>
+        <p>All the lyrics for the album were originally intended to be in English, but in the end the band decided that Icelandic felt more natural to them. Some lyrics were translated back into Icelandic, while some songs got completely new texts.[16] It is the band's first album to feature a track sung in English ("All Alright"). The first track on the album, "Gobbledigook", premiered on Zane Lowe's BBC Radio 1 music show in the UK on May 27, 2008. "Festival" was premiered on Colin Murray's Radio 1 show on June 3, 2008. "Inní mér syngur vitleysingur" was used as the theme tune for Colin Murray's Gold Run, which aired on BBC Radio 5 Live during the run-up to the 2012 Summer Olympics.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/FinalProject/Image/damn.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>DAMN</b></p>
+        <p>Damn (stylized as DAMN.) is the fourth studio album by American rapper Kendrick Lamar.[1] It was released on April 14, 2017, by Aftermath Entertainment, Interscope Records and Top Dawg Entertainment.[2] The album features production from a variety of record producers, including executive producer and Top Dawg Entertainment label-head Anthony "Top Dawg" Tiffith, Sounwave, DJ Dahi, Mike Will Made It and Ricci Riera; as well as further production contributions from James Blake, Steve Lacy, BadBadNotGood, Greg Kurstin, The Alchemist and 9th Wonder, among others. Damn features appearances from singers Rihanna and Top Dawg signee Zacari, along with Irish rock band U2.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="/FinalProject/Image/norah_jones.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Lorem Ipsum</b></p>
+        <p>Come Away with Me is the debut studio album by American recording artist Norah Jones, released on February 26, 2002 by Blue Note Records. Recording sessions took place at Sorcerer Sound Studio in New York City and Allaire Studios in Shokan, New York. Come Away with Me peaked at number one on the US Billboard 200, and received Grammy Awards for Album of the Year and Best Pop Vocal Album. It was later certified diamond by the RIAA on February 15, 2005 for shipments of over ten million copies in the United States,and has sold over 27 million copies worldwide as of 2016.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="/FinalProject/Image/taylor.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>RED</b></p>
+        <p>Red is the fourth studio album by American singer-songwriter Taylor Swift, and her last to feature a country sound. It was released on October 22, 2012, by Big Machine Records, as the follow-up to her third studio album, Speak Now. The album title was inspired by the "semi-toxic relationships" that Swift experienced during the process of conceiving this album, with Swift describing the emotions she felt as "red emotions" due to their intense and tumultuous nature. Red touches on Swift's signature themes of love and heartbreak, however, from a more mature perspective while exploring other themes such as fame and the pressure of being in the limelight. </p>
+      </div>
+    </div>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<script>
+  function toHome() {
+        location.replace("http://localhost:63342/FinalProject/homepage.html?_ijt=jofvptmlu1oetoji6acdgp8rh4")
+    }
+function toProfile() {
+        location.replace("http://localhost:63342/FinalProject/profile.html?_ijt=bvg1j52r17qcu08lek45eh7ldk")
+
+}
+
+function toVideo() {
+      location.replace('http://localhost:63342/FinalProject/video.html?_ijt=9arlv49kh9n34p2c8f90u6q81b')
+
+}
+function openSearch() {
+    document.getElementById("newOverlay").style.display = "block";
+}
+
+function closeSearch() {
+    document.getElementById("newOverlay").style.display = "none";
+}
+
+function openSearch2() {
+    document.getElementById("newlay").style.display = "block";
+}
+
+function closeSearch2() {
+    document.getElementById("newlay").style.display = "none";
+}
+
+function popup2() {
+    var input = document.getElementsByName("search_song")[0].value
+    result = {}
+    result['song_name'] = input
+    localStorage.setItem('search_info',JSON.stringify(result))
+    //alert(input)
+    location.replace("http://localhost:63342/FinalProject/search_song.html?_ijt=6p5b4r953lfmp1etv7ffalh2pe")
+}
+
+
+
+function popup(){
+    var input = document.getElementsByName("search")[0].value
+    result = {}
+    result['artist_name'] = input
+    localStorage.setItem('search_info',JSON.stringify(result))
+    location.replace("http://localhost:63342/FinalProject/search_result.html?_ijt=dvk038ksgq0n3tgrcb5nktss0m")
+}
+
+</script>
+
+</body>
+</html>
+</html>

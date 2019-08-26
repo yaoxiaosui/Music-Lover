@@ -1,0 +1,288 @@
+<!-- cite: I am using and modifying the template from https://www.w3schools.com/w3css/tryw3css_templates_dark_portfolio.htm -->
+
+<!DOCTYPE html>
+<html>
+<title>Profile Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {width: 120px;background: #222;}
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {margin-left: 120px}
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+    * {
+    box-sizing: border-box;
+}
+
+.openBtn {
+    background: #f1f1f1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.openBtn:hover {
+    background: #bbb;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+}
+
+.overlay-content {
+    position: relative;
+    top: 46%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+.overlay .closebtn:hover {
+    color: #ccc;
+}
+
+.overlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+.overlay input[type=text]:hover {
+    background: #f1f1f1;
+}
+
+.overlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background: #bbb;
+}
+
+
+
+
+</style>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+        <button  href="javascript:void(0)" type="button" onclick= toHome()><i class = "fa fa-home w3-xxlarge"></i></button>
+        <p>HOME</p>
+    </a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <button class="fa fa-user w3-xxlarge" onclick="toFollowing()"></button>
+        <p>Following</p>
+    </a>
+    <a   class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i id = "post" class="fa fa-eye w3-xxlarge" onclick="toPost()"></i>
+        <p>Post</p>
+    </a>
+    <a   class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i name = "playlist"  class="fa fa-play-circle w3-xxlarge" onclick= playlist()></i>
+        <p>Playlist</p>
+    </a>
+
+    <a  class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i id = "cover" class="fa fa-music w3-xxlarge" onclick="toCover()"></i>
+        <p>Cover</p>
+    </a>
+
+    <a  class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i id = "recommend" class="fa fa-star w3-xxlarge" onclick="toRecommendation()"></i>
+        <p>Recommend</p>
+    </a>
+
+    <a href="#search" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-search w3-xxlarge" onclick="openSearch()"></i>
+        <p>Search User</p>
+    </a>
+
+
+    <div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form>
+      <input type="text" placeholder="Search User" name="search_user">
+      <button type="button" onclick="search()"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+
+
+</nav>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+    <!-- Header/Home -->
+    <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+        <h1 class="w3-jumbo" contenteditable="true" id = 'top_user'><span class="w3-hide-small">I'm</span> Yaoxiaosui.</h1>
+        <img src="/FinalProject/Image/oasis2.jpg" alt="boy" class="w3-image" width="992" height="1108">
+    </header>
+
+    <!-- About Section -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+        <h2 class="w3-text-light-grey">Favorite Band</h2>
+        <hr style="width:200px" class="w3-opacity" >
+        <!--<p contenteditable="true">The Beatles. Oasis.-->
+        <div id = "favband" contenteditable="true"></div>
+
+
+        <h2 class="w3-text-light-grey">Email </h2>
+        <hr style="width:200px" class="w3-opacity">
+        <div id = "email" contenteditable="true"></div>
+
+
+
+        <h2 class="w3-text-light-grey">Description </h2>
+        <hr style="width:200px" class="w3-opacity">
+        <div id = "description" contenteditable="true"></div>
+
+        <h2 class="w3-text-light-grey">Date of Birth </h2>
+        <hr style="width:200px" class="w3-opacity">
+        <div id = "birth" contenteditable="true"></div>
+
+        <h2 class="w3-text-light-grey">Website </h2>
+        <hr style="width:200px" class="w3-opacity">
+        <div id = "web" contenteditable="true"></div>
+
+
+
+        </div>
+
+        <!-- End About Section -->
+    </div>
+
+
+
+
+
+</div>
+<script>
+
+    var top_user = document.getElementById("top_user");
+    top_user.innerHTML = localStorage.getItem('top_user')
+    top_user.addEventListener('blur', function(){
+        localStorage.setItem('top_user',this.innerHTML)
+    });
+
+    var favband = document.getElementById("favband");
+    favband.innerHTML = localStorage.getItem('favband')
+    favband.addEventListener('blur', function(){
+        localStorage.setItem('favband',this.innerHTML)
+    });
+
+    var email = document.getElementById("email");
+    email.innerHTML = localStorage.getItem('email')
+    email.addEventListener('blur', function(){
+        localStorage.setItem('email',this.innerHTML)
+    });
+
+    var description = document.getElementById("description");
+    description.innerHTML = localStorage.getItem('description')
+    description.addEventListener('blur', function(){
+        localStorage.setItem('description',this.innerHTML)
+    });
+
+     var birth = document.getElementById("birth");
+    birth.innerHTML = localStorage.getItem('birth')
+    birth.addEventListener('blur', function(){
+        localStorage.setItem('birth',this.innerHTML)
+    });
+
+    var web = document.getElementById("web");
+    web.innerHTML = localStorage.getItem('web')
+    web.addEventListener('blur', function(){
+        localStorage.setItem('web',this.innerHTML)
+    });
+
+
+    function playlist(){
+        var obj = JSON.parse(localStorage.getItem('list_info'));
+        //alert(obj)
+        localStorage.setItem('list_info',JSON.stringify(obj))
+        location.replace("http://localhost:63342/FinalProject/list_result.html?_ijt=lkqh3ldpd29559g8lcgnqioi91")
+
+    }
+
+    function toHome() {
+        location.replace("http://localhost:63342/FinalProject/homepage.html?_ijt=jofvptmlu1oetoji6acdgp8rh4")
+    }
+
+    function toCover() {
+        location.replace("http://localhost:63342/FinalProject/cover.html?_ijt=ifp0epkaeceda6la1gnvs8ilk2")
+    }
+
+    function openSearch() {
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function closeSearch() {
+        document.getElementById("myOverlay").style.display = "none";
+    }
+
+    function toFollowing(){
+        var obj = JSON.parse(localStorage.getItem('user_information'));
+        localStorage.setItem('user_information',JSON.stringify(obj))
+        location.replace("http://localhost:63342/FinalProject/following.html?_ijt=8inkminau4bmniv2enbra47cek")
+    }
+
+    function search() {
+        var input = document.getElementsByName("search_user")[0].value
+        result = {}
+        result['search_user_name'] = input
+        localStorage.setItem('user_search_info',JSON.stringify(result))
+        location.replace("http://localhost:63342/FinalProject/user_result.html?_ijt=om0d6igq1orf6g1t9fqsste65i")
+    }
+
+   function toPost(){
+        location.replace("http://localhost:63342/FinalProject/post.html?_ijt=jv4596pp8rjv1ojjg7hqh7nd2s")
+   }
+
+   function toRecommendation(){
+        location.replace("http://localhost:63342/FinalProject/recommendation.html?_ijt=uic7mp6gg5d0sjm171ajpgt3hf")
+   }
+
+
+</script>
+</body>
+</html>

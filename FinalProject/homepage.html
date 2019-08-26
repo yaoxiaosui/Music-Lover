@@ -1,0 +1,264 @@
+
+<!-- cite: I am using and modifying the template from https://www.w3schools.com/w3css/tryw3css_templates_coming_soon.htm -->
+<!-- cite: sign up and sign in pages are inspired and modified from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_signup_form_modal -->
+
+
+<!DOCTYPE html>
+<html>
+<title>Home Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+    body,h1 {font-family: "Raleway", sans-serif}
+    body, html {height: 100%}
+    .bgimg {
+        background-image: url('/FinalProject/Image/liam.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box}
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: rgba(255, 255, 255, .4);
+    }
+
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    hr {
+        border: 1px solid rgba(255, 255, 255, .4);
+        margin-bottom: 25px;
+    }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: rgba(255, 255, 255, .4);
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    button:hover {
+        opacity:1;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        padding: 14px 20px;
+        background-color: rgba(255, 255, 255, .4);
+    }
+
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn, .signupbtn {
+        float: left;
+        width: 50%;
+    }
+
+    /* Add padding to container elements */
+    .container {
+        padding: 16px;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+        .cancelbtn, .signupbtn {
+            width: 100%;
+        }
+    }
+
+
+
+
+
+</style>
+<body>
+
+<!-- Signup Box-->
+<div id="signupbox" class="w3-modal">
+    <form action="/action_page.php" style="border:1px;width:30%;opacity:1;margin-left: auto;margin-right: auto;padding-top: 120px">
+        <div class="container">
+
+
+            <font color="white">Email</font>
+            <input type="text" placeholder="Please Enter Email" name="signup_email" required>
+
+            <font color="white">User Name</font>
+            <input type="text" placeholder="Pleace Enter User Name" name="signup_username" required>
+
+            <font color="white">Password</font>
+            <input type="password" placeholder="Please Enter Password" name="signup_psw" required>
+
+
+
+            <div class="clearfix">
+                <button name = "signupbtn" href="javascript:void(0)" type="button" onclick= toSignup()  class="signupbtn">Sign up</button>
+                <button href="javascript:void(0)" type="button" class="cancelbtn" onclick="document.getElementById('signupbox').style.display='none'">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Signin Box-->
+<div id="signinbox" class="w3-modal">
+    <form action="/action_page.php" style="border:1px;width:30%;opacity:1;margin-left: auto;margin-right: auto;padding-top: 120px">
+        <div class="container">
+
+
+
+            <font color="white">User Name</font>
+            <input type="text" placeholder="Pleace Enter User Name" name="signin_username" required>
+
+            <font color="white">Password</font>
+            <input type="password" placeholder="Please Enter Password" name="signin_psw" required>
+
+
+
+            <div class="clearfix">
+
+                <button name = "signinbtn" href="javascript:void(0)" type="button" onclick= toProfile()  class="signupbtn">Sign In</button>
+                <button name = "cancelbtn" href="javascript:void(0)" type="button" class="cancelbtn" onclick="document.getElementById('signinbox').style.display='none'">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+
+
+    <div class="topnav">
+        <a href="javascript:void(0)" name = "signin" class="fa fa-user-circle-o w3-margin-right" onclick="document.getElementById('signinbox').style.display='block'">Sign in</a>
+        <a href="javascript:void(0)" name = "signup" class="fa fa-user-circle-o w3-margin-right" onclick="document.getElementById('signupbox').style.display='block'">Sign up</a>
+        <a href="javascript:void(0)" name = "music" class="fa fa-user-circle-o w3-margin-right" onclick= toMusic()>Music</a>
+        <a href="javascript:void(0)" name = "gig" class="fa fa-user-circle-o w3-margin-right" onclick= toGig()>Gig</a>
+        <a href="javascript:void(0)" name = "video" class="fa fa-user-circle-o w3-margin-right" onclick= toVideo()>Video</a>
+    </div>
+
+
+
+    <div style="padding-left:16px"></div>
+
+
+
+</div>
+
+
+<script>
+    function toProfile() {
+
+        var name = document.getElementsByName('signin_username')[0].value
+
+        var password = document.getElementsByName('signin_psw')[0].value
+
+        var obj = JSON.parse(localStorage.getItem('login_info'));
+
+        if ((name == obj.username || name == obj.email ) && password == obj.password){
+            location.replace("http://localhost:63342/FinalProject/profile.html?_ijt=bvg1j52r17qcu08lek45eh7ldk")
+        }
+        else{
+            alert("wrong password or invalid username")
+        }
+    }
+
+    function toSignup(){
+
+        var username = document.getElementsByName('signup_username')[0].value
+
+        var password = document.getElementsByName('signup_psw')[0].value
+
+        var email = document.getElementsByName('signup_email')[0].value
+
+        //alert(email)
+
+        //alert(username)
+
+        //alert(password)
+
+        result = {}
+        result['password'] = password
+        result['email'] = email
+        result['username'] = username
+        localStorage.setItem('login_info', JSON.stringify(result));
+
+        location.replace("http://localhost:63342/FinalProject/profile.html?_ijt=djd6069ckqcgtrbj5ski92c1ek")
+
+        //var obj = JSON.parse(localStorage.getItem('login_info'));
+
+    }
+
+    function toGig() {
+        location.replace("http://localhost:63342/FinalProject/gig.html?_ijt=9arlv49kh9n34p2c8f90u6q81b")
+    }
+
+    function toMusic() {
+        location.replace("http://localhost:63342/FinalProject/music.html?_ijt=9arlv49kh9n34p2c8f90u6q81b")
+
+    }
+
+    function toVideo() {
+        location.replace("http://localhost:63342/FinalProject/video.html?_ijt=9arlv49kh9n34p2c8f90u6q81b")
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
+

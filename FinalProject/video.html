@@ -1,0 +1,206 @@
+<!-- cite: I am using and modifying the template from https://www.w3schools.com/w3css/tryw3css_templates_portfolio.htm -->
+<!-- cite: The search button and style are from https://www.w3schools.com/howto/howto_css_fullscreen_search.asp -->
+<!DOCTYPE html>
+<html>
+<title>Video Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body {
+    font-family: Arial;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+}
+
+.overlay-content {
+    position: relative;
+    top: 46%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+.overlay .closebtn:hover {
+    color: #ccc;
+}
+
+.overlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+.overlay input[type=text]:hover {
+    background: #f1f1f1;
+}
+
+.overlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background: #bbb;
+}
+</style>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+
+  <div class="w3-bar-block">
+    <a href="#home" onclick="toHome()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Home</a>
+    <a href="#profile" onclick="toProfile()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>Profile</a>
+    <a href="#profile" onclick="toMusic()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-music fa-fw w3-margin-right"></i>Music</a>
+
+    <a href="#search" id = "search_button" onclick="openSearch()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-search fa-fw w3-margin-right"></i>Search</a>
+  </div>
+
+   <div id="newOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+    <form>
+      <input type="text" placeholder="Search Artist" name="search">
+      <button type = "button" onclick="popup()" name = "submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+        <iframe width="365" height="365" src="https://www.youtube.com/embed/bx1Bh8ZvH84" frameborder="0" allowfullscreen></iframe>
+      <div class="w3-container w3-white">
+        <p id = 'title2'><b>Wonderwall</b></p>
+        <p>Wonderwall" is a song by the English rock band Oasis, written by the band's lead guitarist and main songwriter Noel Gallagher. The song was produced by Owen Morris and Gallagher for their second studio album (What's the Story) Morning Glory? (1995). According to Gallagher, "Wonderwall" describes "an imaginary friend who's gonna come and save you from yourself".
+            The song was released as the third single from the album in October 1995. "Wonderwall" topped the charts in Australia and New Zealand. The song reached the top ten on another ten charts, including Canada and the United States at number 5 and 8, respectively, as well as number two on both the UK Singles Chart and Irish Singles Chart. </p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+        <iframe width="365" height="365" src="https://www.youtube.com/embed/tI-5uv4wryI" frameborder="0" allowfullscreen></iframe>
+      <div class="w3-container w3-white">
+        <p><b>Champagne Supernova</b></p>
+        <p>"Champagne Supernova" is a song by English rock band Oasis, written by guitarist Noel Gallagher. The seven-minute anthem is the closing track on the album (What's the Story) Morning Glory?. Though only released as a single in Australia, US, Canada, France and New Zealand in 1996, a music video directed by Nigel Dick[1] was released to music channels and, as a result, the song received significant television and radio airplay.
+            The song was released in the US as a radio single to great success, becoming the band's second No. 1 single on the Modern Rock Tracks chart. It also peaked at No. 20 on the Billboard Hot 100 Airplay, becoming the band's third top 40 single on that chart. The song is considered a fan-favourite and has received widespread critical acclaim.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+        <iframe width="365" height="365" src="https://www.youtube.com/embed/cmpRLQZkTb8" frameborder="0" allowfullscreen></iframe>
+      <div class="w3-container w3-white">
+        <p><b>Don’t Look Back In Anger</b></p>
+        <p>"Don't Look Back in Anger" is a song by the English rock band Oasis. It was released on 19 February 1996 as the fifth single from their second studio album, (What's the Story) Morning Glory? (1995). The song was written by the band's guitarist and main songwriter, Noel Gallagher. It became the band's second single to reach number one on the UK Singles Chart, where it also went platinum.[1] "Don't Look Back in Anger" was also the first Oasis single with lead vocals by Noel (who had previously only sung lead on B-sides) instead of his brother, Liam.
+            It is one of the band's signature songs, and was played at almost every single live show from its release to the dissolution of the band. It was ranked number one on a list of the '50 Most Explosive Choruses' by the NME</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+        <iframe width="365" height="365" src="https://www.youtube.com/embed/tvTRZJ-4EyI" frameborder="0" allowfullscreen></iframe>
+      <div class="w3-container w3-white">
+        <p><b>HUMBLE.</b></p>
+        <p>"Humble" (stylized as "HUMBLE.") is a song by American rapper Kendrick Lamar. It was released on March 30, 2017, by Top Dawg Entertainment, Aftermath Entertainment and Interscope Records. The song, written by Lamar and Mike Will Made It and produced by the latter,[5] was serviced to rhythmic contemporary radio as the lead single from Lamar's fourth studio album, Damn.[6] "Humble" became Lamar's second number-one single on the US Billboard Hot 100 after "Bad Blood" and his first as a lead artist.
+            The song received four nominations at the 60th Annual Grammy Awards: Record of the Year, Best Rap Performance, Best Rap Song, and Best Music Video, winning the latter three</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+        <iframe width="365" height="365" src="https://www.youtube.com/embed/tO4dxvguQDk" frameborder="0" allowfullscreen></iframe>
+      <div class="w3-container w3-white">
+        <p><b>Don't Know Why</b></p>
+        <p>"Don't Know Why" is a song written and composed by Jesse Harris that originally appeared on his 1999 album, Jesse Harris & the Ferdinandos. A cover of it was the second single by American singer Norah Jones from her debut studio album Come Away with Me (2002). Jones's version peaked at No. 30 on the U.S. Billboard Hot 100 and was a critical success, helping establish her as a respected new artist, and subsequently her album sold extremely well.
+            The single went on to win three Grammy Awards in 2003 for Record of the Year, Song of the Year, and Best Female Pop Vocal Performance. It remains Jones's biggest hit single in the United States to date, and her only one to reach the top 40 of the Billboard Hot 100.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+        <iframe width="365" height="365" src="https://www.youtube.com/embed/8LeQN249Jqw" frameborder="0" allowfullscreen></iframe>
+      <div class="w3-container w3-white">
+        <p><b>Olsen Olsen</b></p>
+        <p>Ágætis byrjun (Icelandic: [ˈaːucaitɪs ˈpɪrjʏn], A good beginning)[1] is the second studio album by Icelandic post-rock band Sigur Rós, released on 12 June 1999. The album was recorded between the summer of 1998 and the spring of 1999 with producer Ken Thomas. Ágætis byrjun represented a substantial departure from the band's previous album Von, with that album's extended ambient soundscapes replaced by Jónsi Birgisson's now signature cello-bowed guitarwork and lush orchestration, using a double string octet amongst other chamber elements.
+            Ágætis byrjun became Sigur Rós's breakthrough album, both commercially and critically. It received a 2000 release in the United Kingdom and a 2001 release in the United States. </p>
+      </div>
+    </div>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<script>
+  function toHome() {
+        location.replace("http://localhost:63342/FinalProject/homepage.html?_ijt=jofvptmlu1oetoji6acdgp8rh4")
+    }
+  function toProfile() {
+        location.replace("http://localhost:63342/FinalProject/profile.html?_ijt=bvg1j52r17qcu08lek45eh7ldk")
+
+  }
+
+  function toMusic() {
+      location.replace('http://localhost:63342/FinalProject/music.html?_ijt=9arlv49kh9n34p2c8f90u6q81b')
+  }
+function openSearch() {
+    document.getElementById("newOverlay").style.display = "block";
+}
+
+function closeSearch() {
+    document.getElementById("newOverlay").style.display = "none";
+}
+
+function popup(){
+    var input = document.getElementsByName("search")[0].value
+    result = {}
+    result['video_name'] = input
+    localStorage.setItem('video_search_info',JSON.stringify(result))
+    location.replace("http://localhost:63342/FinalProject/video_result.html?_ijt=gcsuppfg4rrs26ik25g2geu5q5")
+}
+
+</script>
+
+</body>
+</html>
+</html>
